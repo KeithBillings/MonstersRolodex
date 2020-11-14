@@ -1,5 +1,7 @@
 import { Component } from "react";
 import "./App.css";
+import CardList from "./components/card-list/card-list.component"; // functional component import
+// import {CardList} from "./components/card-list/card-list.component"; // arrow function version
 
 class App extends Component {
   constructor() {
@@ -19,6 +21,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <CardList name={"Keith"}> {/* props */}
+        Billings {/* children */}
+      </CardList>
         {this.state.monsters.map((monster) => (
           <h1 key={monster.id}>{monster.name}</h1>
         ))}
