@@ -1,24 +1,17 @@
-// export const CardList = (props) => {
-//   console.log("props are ", props)
-//   return (
-//     <>
-//     <div>hello</div>
-//     <div>{props.name}</div>
-//     <div>{props.children}</div>
-//     </>
-//   );
-// }
+import "./card-list.styles.css";
 
-
-
-function CardList (props) {
+export const CardList = (props) => {
   return (
-    <>
-     <div>hello</div>
-     <div>{props.name}</div>
-     <div>{props.children}</div>
-     </>
-  )
+    <div className="card-list" > {props.children} </div>
+  );
 }
 
-export default CardList;
+
+
+// function CardList (props) {
+//   return (
+//     <div className="card-list" > {props.children} </div>
+//   )
+// }
+
+// export default CardList;
