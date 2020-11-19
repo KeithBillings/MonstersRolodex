@@ -1,30 +1,46 @@
-import { Component } from "react";
+// import { Component } from "react";
+import { useEffect, useState } from 'react';
 import "./App.css";
-// import { CardList } from "./components/card-list/card-list.component"; // arrow function version
 import CardList from "./components/card-list/card-list"; // functional component import
 
-class App extends Component {
-  constructor() {
-    super();
+// class App extends Component {
+//   constructor() {
+//     super();
 
-    this.state = {
-      monsters: [],
-    };
-  }
+//     this.state = {
+//       monsters: [],
+//     };
+//   }
 
-  componentDidMount() {
+//   componentDidMount() {
+//     fetch("https://jsonplaceholder.typicode.com/users")
+//       .then(res => res.json())
+//       .then(users => this.setState({ monsters: users }));
+//   }
+
+//   render() {
+//     return (
+//       <div className="App">
+//         <CardList monsters={this.state.monsters} />
+//       </div>
+//     );
+//   }
+// }
+
+function App() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then(res => res.json())
-      .then(users => this.setState({ monsters: users }));
-  }
+      .then(users => setUsers(users))
+  }, []);
 
-  render() {
-    return (
-      <div className="App">
-        <CardList monsters={this.state.monsters}/>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <CardList monsters={users} />
+    </div>
+  )
 }
 
 export default App;
